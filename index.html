@@ -53,7 +53,7 @@
 
       <button onclick="prosesHitung()">Hitung Kembalian</button>
 
-      <div id="hasilTeks">Kembalian: -</div>
+      <div id="hasilTeks">Hasilnya: -</div>
     </div>
     <section class="layanan" id="layanan">
       <h2>Layanan Kami</h2>
@@ -91,7 +91,6 @@
             melalui informasi berikut.
           </p>
 
-
           <div class="info-item">
             <span>👥</span>
             <div>
@@ -107,7 +106,6 @@
               <p>alikagusti01@gmail.com</p>
             </div>
           </div>
-
 
           <div class="info-item">
             <span>📍</span>
@@ -172,27 +170,40 @@
           icon.innerHTML = "☰";
         }
       }
-      // 1. Fungsi logika buatan Anda
       function barang(uangku, hargaBarang) {
-        let hasil =
-          hargaBarang >= uangku
-            ? "Kembalian: Rp " +
-              (hargaBarang - uangku).toLocaleString("id-ID") +
-              ",-"
-            : "Uang kurang / salah karena lebih!";
-        return hasil;
+        if (uangku < hargaBarang) {
+          return (
+            "Uang kurang: Rp " + (hargaBarang - uangku).toLocaleString("id-ID")
+          );
+        }
+
+        if (uangku === hargaBarang) {
+          return "Uang pembayaran pas / Lunas!";
+        }
+
+        return (
+          "Kembalinya: Rp " + (uangku - hargaBarang).toLocaleString("id-ID")
+        );
       }
 
       // 2. Fungsi penyambung antara HTML dan JavaScript
       function prosesHitung() {
-        // Ambil angka yang diketik di kotak input HTML
-        let harga = Number(document.getElementById("inputHarga").value);
-        let uang = Number(document.getElementById("inputUang").value);
+        let harga = Number(
+          document.getElementById("inputHarga").value.replace(/\./g, "")
+        );
 
-        // Jalankan fungsi buatan Anda
+        let uang = Number(
+          document.getElementById("inputUang").value.replace(/\./g, "")
+        );
+
+        if (!harga || !uang) {
+          document.getElementById("hasilTeks").innerText =
+            "Masukkan harga dan uang pembeli!";
+          return;
+        }
+
         let output = barang(uang, harga);
 
-        // Tampilkan hasilnya ke layar HTML
         document.getElementById("hasilTeks").innerText = output;
       }
       function formatAngka(input) {
@@ -202,7 +213,7 @@
       }
       // EMAILJS
       emailjs.init({
-        publicKey: "PUBLIC_KEY_KAMU",
+        publicKey: "ImuuYEY1zRBJK1BN7",
       });
 
       document
@@ -216,16 +227,17 @@
           tombol.innerText = "Mengirim...";
 
           emailjs
-            .sendForm("SERVICE_ID_KAMU", "TEMPLATE_ID_KAMU", this)
+            .sendForm("service_bnphwus", "template_dutz4gs", this)
             .then(function () {
               alert("Pesan berhasil dikirim!");
 
               document.getElementById("contact-form").reset();
             })
             .catch(function (error) {
-              alert("Pesan gagal dikirim. Silakan coba lagi.");
+              alert("Pesan gagal dikirim: " + error.text);
 
-              console.log(error);
+              console.log("Status:", error.status);
+              console.log("Pesan error:", error.text);
             })
             .finally(function () {
               tombol.disabled = false;
