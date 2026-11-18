@@ -1,0 +1,328 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --primary: #0f4c81;
+    --secondary: #2196c9;
+    --tiga: #e8f5fc;
+  }
+  html{
+    scroll-padding-top: 170px;
+  }
+  body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--tiga);
+    margin-top: 200px;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+  }
+  
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    z-index: 1000;
+    background-color: var(--tiga);
+  }
+  
+  header marquee {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+  
+  header marquee h2 {
+    display: inline-block;
+    width: max-content;
+    max-width: none;
+    margin: 0;
+    padding: 10px;
+    color: var(--primary);
+    font-size: clamp(11px, 3.5vw, 16px);
+    white-space: nowrap;
+  }
+  /* JUDUL */
+  h1 {
+    margin: 20px 15px;
+    color: var(--primary);
+    font-size: clamp(20px, 5vw, 28px);
+  }
+  
+  /* NAVBAR */
+  nav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary);
+    z-index: 999;
+  }
+  
+  .nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-header h2 {
+    color: white;
+    margin: 0;
+  }
+  
+  /* HAMBURGER */
+  #iconMenu {
+    width: auto;
+    margin: 0;
+    padding: 5px 10px;
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+  }
+  
+  /* MENU */
+  nav ul {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin: 15px 0;
+    list-style: none;
+  }
+  
+  nav ul.active {
+    display: flex;
+  }
+  
+  nav ul li a {
+    color: var(--tiga);
+    text-decoration: none;
+    font-size: 15px;
+  }
+  
+  /* SEARCH */
+  nav input {
+    width: 100%;
+    padding: 10px 15px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+  }
+  
+  /* KALKULATOR */
+  .box {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 30px);
+    margin: 0 auto;
+    border: 1px solid var(--secondary);
+    padding: 15px;
+    border-radius: 8px;
+  }
+  
+  .box h2 {
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 15px;
+  }
+  
+  /* INPUT DAN BUTTON */
+  .box input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px;
+    font-size: 16px;
+  }
+  
+  .box button {
+    width: 100%;
+    max-width: 200px;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  /* HASIL */
+  #hasilTeks {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--primary);
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  .layanan {
+    padding: 30px 15px;
+    text-align: center;
+  }
+  
+  .layanan h2 {
+    color: var(--primary);
+    margin: 0 0 10px;
+  }
+  
+  .deskripsi {
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .layanan-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .layanan-card {
+    background: white;
+    border: 1px solid var(--secondary);
+    border-radius: 10px;
+    padding: 20px 12px;
+    text-align: left;
+  }
+  
+  .layanan-card h3 {
+    color: var(--primary);
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .layanan-card p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 350px) {
+    .layanan-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+
+.kontak {
+    padding: 60px 20px;
+    background-color: white;
+  }
+  
+  .kontak-container {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  
+  .kontak-info,
+  .kontak-form {
+    flex: 1;
+  }
+  
+  .kontak-info h2 {
+    color: var(--primary);
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+  
+  .kontak-info > p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 30px;
+  }
+  
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+  }
+  
+  .info-item span {
+    font-size: 25px;
+    background: var(--tiga);
+    padding: 12px;
+    border-radius: 10px;
+  }
+  
+  .info-item h4 {
+    color: var(--primary);
+    margin-bottom: 5px;
+  }
+  
+  .info-item p {
+    color: #666;
+  }
+  
+  .kontak-form {
+    padding: 25px;
+    background: var(--tiga);
+    border-radius: 15px;
+  }
+  
+  .kontak-form h3 {
+    color: var(--primary);
+    margin-bottom: 20px;
+  }
+  
+  .kontak-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .kontak-form input,
+  .kontak-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    outline: none;
+  }
+  
+  .kontak-form input:focus,
+  .kontak-form textarea:focus {
+    border-color: var(--secondary);
+  }
+  
+  .kontak-form button {
+    padding: 13px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .kontak-form button:hover {
+    background: var(--secondary);
+  }
+  
+  /* Tampilan HP */
+  @media (max-width: 700px) {
+    .kontak-container {
+      flex-direction: column;
+    }
+  
+    .kontak-info h2 {
+      font-size: 25px;
+    }
+  }
+  
